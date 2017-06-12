@@ -1,0 +1,26 @@
+<div>Enter coordinates:</div>
+
+<section class="coordinates">
+  <div ng-repeat="coords in paddocksDir.coordinates">
+    x{{$index + 1}}: <input
+      type="text"
+      ng-model="paddocksDir.coordinates[$index][0]"
+      ng-change="paddocksDir.computePaddock()"
+      placeholder="x{{$index + 1}} coord"
+    ></input>
+    y{{$index + 1}}: <input
+      type="text"
+      ng-model="paddocksDir.coordinates[$index][1]"
+      ng-change="paddocksDir.computePaddock()"
+      placeholder="y{{$index + 1}} coord"
+    ></input>
+  </div>
+</section>
+<button ng-click="paddocksDir.addCoordinate()">Add New Coord</button>
+<button ng-click="paddocksDir.computePaddock()">Compute Paddock</button>
+<button ng-click="paddocksDir.resetPaddock()">Reset</button>
+
+<pre>{{ paddocksDir.coordinates }}</pre>
+<div ng-show="paddocksDir.area">Area: {{ paddocksDir.area }}</div>
+
+<paddock-img></paddock-img>
